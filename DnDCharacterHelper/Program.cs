@@ -11,30 +11,36 @@ using System.Threading.Tasks;
 
     the stats are entered as ints from 3-18 (but can be raised to over 18 due to race), and the saving throws are 10 + stat bonus.    
 
+    1. Set OrigStats
+    1.5 set new orig  stats based  on race (cutting for now?)
+    2. CalculateStatBonus (ModStats) (-10; /2)
+    3. CalculateSavingThrows from ModStats (10+ModStats stat)
+    4. print everything
+
+
  */
 
 namespace DnDCharacterHelper
 {
     class Program
     {
+
+
         static void Main(string[] args)
         {
-            PlayerStats charSheet = new PlayerStats();
-
-            charSheet.AddStat(16);
-            charSheet.AddStat(13);
-            charSheet.AddStat(11);
-            charSheet.AddStat(10);
-            charSheet.AddStat(7);
-            charSheet.AddStat(6);
 
 
-            StatBonus bonuses = PlayerStatLine ();
-            bonuses.CalculateStatBonus(PlayerStatLine);
 
-            SavingThrows savingThrows = new SavingThrows();
+            PlayerStats origStats = new PlayerStats();
+            //
+            //PlayerStats savingThrows = new PlayerStats();
 
-            
+            origStats.OrigStats = new int[] { 16, 13, 11, 10, 7, 6 };
+
+            Console.WriteLine(origStats.OrigStats);
+            Console.WriteLine(origStats.ModStats);
+            Console.WriteLine(origStats.SavingThrows);
+
         }
     }
 }

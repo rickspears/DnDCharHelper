@@ -10,16 +10,24 @@ namespace DnDCharacterHelper
 {
     class SavingThrows
     {
-        public SavingThrows()
+        public int[] CalculateSavingThrows()
         {
-            SavingThrowList = new List<int>();
-        }
-        public int CalculateST(List<int> StatBonusList)
-        {
-            
+            PlayerStats savingThrows = new PlayerStats();
+            savingThrows.SavingThrows = savingThrows.ModStats;
+
+            foreach (int stat in savingThrows.SavingThrows)
+            {
+                int savThro = stat + 10;
+                savingThrows.SavingThrows[stat] = savThro;
+
+                
+
+
+
+            }
 
 
         }
-        public List<int> SavingThrowList;
+
     }
 }
