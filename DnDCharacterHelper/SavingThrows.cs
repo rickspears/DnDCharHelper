@@ -10,7 +10,7 @@ namespace DnDCharacterHelper
 {
     class SavingThrows
     {
-        public void CalculateSavingThrows(int[] savThro)
+        public int[] CalculateSavingThrows(int[] savThro)
         {
             for (int index = 0; index < savThro.Length; ++index)
             {
@@ -21,8 +21,7 @@ namespace DnDCharacterHelper
 
                 }
             }
-            PlayerStats modded = new PlayerStats();
-            modded.SavingThrows = savThro;
+            return savThro;
         }
 
     }
