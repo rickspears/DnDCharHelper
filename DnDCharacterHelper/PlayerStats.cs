@@ -11,11 +11,27 @@ namespace DnDCharacterHelper
     class PlayerStats
     {
 
-        public int[] OrigStats { get; set; }
 
-        public int[] ModStats { get; set; }
+        private int[] _origStats; 
+        public int[] OrigStats
+        {
+            get { return _origStats; }
+            set { _origStats = value; }
+        }
 
-        public int[] SavingThrows { get; set; }
+        private int[] _modStats;
+        public int[] ModStats
+        {
+            get { return _modStats; }
+            set { _modStats = value; }
+        }
+
+        private int[] _savingThrows;
+        public int[] SavingThrows
+        {
+            get { return _savingThrows; }
+            set { _savingThrows = value; }
+        }
 
     }
 }

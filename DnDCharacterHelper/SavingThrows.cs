@@ -4,29 +4,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//class saving throws; methods calculate saving throws, 
+//pulls in modstats from playerstats, spits out savingthrows to playerstats
 
 namespace DnDCharacterHelper
 {
     class SavingThrows
     {
-        public int[] CalculateSavingThrows()
+        public void CalculateSavingThrows(int[] savThro)
         {
-            PlayerStats savingThrows = new PlayerStats();
-            savingThrows.SavingThrows = savingThrows.ModStats;
-
-            foreach (int stat in savingThrows.SavingThrows)
+            for (int index = 0; index < savThro.Length; ++index)
             {
-                int savThro = stat + 10;
-                savingThrows.SavingThrows[stat] = savThro;
+                foreach (int stat in savThro)
+                {
+                    int changedStat = stat + 10;
+                    savThro[index] = changedStat;
 
-                
-
-
-
+                }
             }
-
-
+            PlayerStats modded = new PlayerStats();
+            modded.SavingThrows = savThro;
         }
 
     }

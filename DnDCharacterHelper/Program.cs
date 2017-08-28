@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 
 /*
-    we need a DnD character helper to read the stats of a player, modify the stats due to your race, 
-    calculate stat bonuses per stat, and calculate saving throws based on the new stat bonuses.
+   
 
-    the stats are entered as ints from 3-18 (but can be raised to over 18 due to race), and the saving throws are 10 + stat bonus.    
-
-    1. Set OrigStats
-    1.5 set new orig  stats based  on race (cutting for now?)
-    2. CalculateStatBonus (ModStats) (-10; /2)
+    1. Set OrigStats ***(later will add creating stats)***
+    1.5 set new orig  stats based  on race ***(cutting until later)***
+    2. CalculateStatBonus from OrigStats (OrigStats-10; /2)
     3. CalculateSavingThrows from ModStats (10+ModStats stat)
     4. print everything
-
 
  */
 
@@ -28,18 +24,31 @@ namespace DnDCharacterHelper
 
         static void Main(string[] args)
         {
-
-
-
+            
             PlayerStats origStats = new PlayerStats();
-            //
-            //PlayerStats savingThrows = new PlayerStats();
+            origStats.OrigStats = new int[6] { 16, 13, 11, 10, 7, 6 };
 
-            origStats.OrigStats = new int[] { 16, 13, 11, 10, 7, 6 };
+            // learn this... just copied it. should work with less code?
+            //Array.ForEach(origStats.OrigStats, pure => Console.WriteLine(pure));
 
-            Console.WriteLine(origStats.OrigStats);
-            Console.WriteLine(origStats.ModStats);
-            Console.WriteLine(origStats.SavingThrows);
+            StatBonus modStats = new StatBonus();
+            modStats.CalculateStatBonus(origStats.OrigStats);
+
+
+            SavingThrows savingThrows = new SavingThrows();
+            savingThrows.CalculateSavingThrows(origStats.ModStats);
+
+
+
+            Console.WriteLine("str:{0}; dex:{1}; con:{2}; wis:{3}; " +
+                "int:{4}; cha:{5}", origStats.OrigStats[0], origStats.OrigStats[1],
+                origStats.OrigStats[2], origStats.OrigStats[3], origStats.OrigStats[4],
+                origStats.OrigStats[5]);
+
+
+            //will write these all out when it works
+            Console.WriteLine(origStats.ModStats[0]);
+            Console.WriteLine(origStats.SavingThrows[0]);
 
         }
     }
