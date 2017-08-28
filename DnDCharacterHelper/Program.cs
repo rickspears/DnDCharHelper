@@ -33,7 +33,7 @@ namespace DnDCharacterHelper
             //Array.ForEach(origStats.OrigStats, pure => Console.WriteLine(pure));
 
             StatBonus bonus = new StatBonus();
-            player.ModStats = bonus.CalculateStatBonus(origStats.OrigStats);
+            player.ModStats = bonus.CalculateStatBonus(player.OrigStats);
             // player {s: array, ms: array, st: nothing}
 
             SavingThrows savingThrows = new SavingThrows();
