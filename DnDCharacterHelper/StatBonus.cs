@@ -11,7 +11,7 @@ namespace DnDCharacterHelper
     class StatBonus
     {
 
-        public void CalculateStatBonus(int[] statBonuses)
+        public int[] CalculateStatBonus(int[] statBonuses)
         {
             // i dont think this is right...
             //PlayerStats modStats = new PlayerStats();
@@ -46,8 +46,7 @@ namespace DnDCharacterHelper
                     }
                 }
 
-                PlayerStats newMods = new PlayerStats();
-                newMods.ModStats = statBonuses;
+                return statBonuses;
             }
 
         }
