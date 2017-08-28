@@ -17,10 +17,6 @@ namespace DnDCharacterHelper
             //PlayerStats modStats = new PlayerStats();
             //modStats.ModStats = modStats.OrigStats;
 
-
-
-
-
             for (int index = 0; index < statBonuses.Length; ++index)
             {
                 foreach (int stat in statBonuses)
@@ -46,9 +42,8 @@ namespace DnDCharacterHelper
                     }
                 }
 
-                return statBonuses;
             }
-
+            return statBonuses;
         }
 
     }
