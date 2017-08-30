@@ -10,16 +10,18 @@ namespace DnDCharacterHelper
 {
     class StatBonus
     {
-
+        int[] quickStats;
+        
         public int[] CalculateStatBonus(int[] statBonuses)
         {
-            // i dont think this is right...
-            //PlayerStats modStats = new PlayerStats();
-            //modStats.ModStats = modStats.OrigStats;
+            //JUST CHANGED THIS 8/30 to see if copying it over before modifying it works....
+            //using quickStats to change shit instead of statBonuses
+            quickStats = statBonuses;
+            
 
-            for (int index = 0; index < statBonuses.Length; ++index)
+            for (int index = 0; index < quickStats.Length; ++index)
             {
-                foreach (int stat in statBonuses)
+                foreach (int stat in quickStats)
                 {
                     if (stat >= 10)
                     {
@@ -28,7 +30,7 @@ namespace DnDCharacterHelper
                         posStat -= 10;
                         posStat /= 2;
                         Math.Truncate((double)posStat);
-                        statBonuses[index] = posStat;
+                        quickStats[index] = posStat;
 
                     }
                     if (stat < 10)
@@ -37,13 +39,13 @@ namespace DnDCharacterHelper
                         negStat -= 10;
                         negStat /= 2;
                         Math.Round((double)negStat);
-                        statBonuses[index] = negStat;
+                        quickStats[index] = negStat;
 
                     }
                 }
 
             }
-            return statBonuses;
+            return quickStats;
         }
 
     }
