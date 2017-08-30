@@ -40,6 +40,7 @@ namespace DnDCharacterHelper
             player.SavingThrows = savingThrows.CalculateSavingThrows(player.ModStats);
             // player {s: array, ms: array, st: array}
            
+           // should move this to the playerstats class. keep all info in one place.
             Console.WriteLine("str:{0}; dex:{1}; con:{2}; wis:{3}; " +
                 "int:{4}; cha:{5}", player.OrigStats[0], player.OrigStats[1],
                 player.OrigStats[2], player.OrigStats[3], player.OrigStats[4],
