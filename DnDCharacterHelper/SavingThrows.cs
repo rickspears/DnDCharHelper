@@ -12,14 +12,13 @@ namespace DnDCharacterHelper
     {
         public int[] CalculateSavingThrows(int[] savThro)
         {
-            for (int index = 0; index < savThro.Length; ++index)
+            for (int index = 0; index < savThro.Length; index++)
             {
-                foreach (int stat in savThro)
-                {
-                    int changedStat = stat + 10;
-                    savThro[index] = changedStat;
+                int replaceStat = savThro[index];
+                replaceStat += 10;
+                savThro[index] = replaceStat; 
 
-                }
+
             }
             return savThro;
         }

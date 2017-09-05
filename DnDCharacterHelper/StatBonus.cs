@@ -10,43 +10,28 @@ namespace DnDCharacterHelper
 {
     class StatBonus
     {
-        int[] quickStats;
-        
+        int[] inputStats;
         public int[] CalculateStatBonus(int[] statBonuses)
         {
-            //JUST CHANGED THIS 8/30 to see if copying it over before modifying it works....
-            //using quickStats to change shit instead of statBonuses
-            quickStats = statBonuses;
-            
+            inputStats = statBonuses;
 
-            for (int index = 0; index < quickStats.Length; ++index)
+            for (int index = 0; index < inputStats.Length; index++)
             {
-                foreach (int stat in quickStats)
+                if (inputStats[index] >= 10)
                 {
-                    if (stat >= 10)
-                    {
+                    inputStats[index] -= 10;
+                    inputStats[index] /= 2;
+                    Math.Truncate((double)inputStats[index]);
 
-                        int posStat = stat;
-                        posStat -= 10;
-                        posStat /= 2;
-                        Math.Truncate((double)posStat);
-                        quickStats[index] = posStat;
-
-                    }
-                    if (stat < 10)
-                    {
-                        int negStat = stat;
-                        negStat -= 10;
-                        negStat /= 2;
-                        Math.Round((double)negStat);
-                        quickStats[index] = negStat;
-
-                    }
                 }
-
+                if (inputStats[index] < 10)
+                {
+                    inputStats[index] -= 10;
+                    inputStats[index] /= 2;
+                    Math.Round((double)inputStats[index]);
+                }
             }
-            return quickStats;
+            return inputStats;
         }
-
     }
 }
