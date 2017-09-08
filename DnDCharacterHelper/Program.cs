@@ -46,12 +46,13 @@ namespace DnDCharacterHelper
             player.SavingThrows = savingThrows.CalculateSavingThrows(player.ModStats);
             // player {s: array, ms: array, st: array}
 
-            player.WriteStats();
-
+            Console.WriteLine(player.ToString());
+            
             // this is where it is messed up. how do i get separate references?
             Console.WriteLine("Orig and Mod: " + ReferenceEquals(player.OrigStats, player.ModStats));
             Console.WriteLine("Mod and ST: " + ReferenceEquals(player.ModStats, player.SavingThrows));
             Console.WriteLine("Orig and ST: " + ReferenceEquals(player.OrigStats, player.SavingThrows));
+            Console.ReadLine();
         }
     }
 }
