@@ -10,28 +10,29 @@ namespace DnDCharacterHelper
 {
     class StatBonus
     {
-        int[] inputStats;
-        public int[] CalculateStatBonus(int[] statBonuses)
+        public List<int> CalculateStatBonus(List<int> statBonuses)
         {
-            inputStats = statBonuses;
+            List<int> newModStats = new List<int>();
 
-            for (int index = 0; index < inputStats.Length; index++)
+            foreach (int moddedStat in statBonuses)
             {
-                if (inputStats[index] >= 10)
+                int stat = moddedStat;
+                if (moddedStat >= 10)
                 {
-                    inputStats[index] -= 10;
-                    inputStats[index] /= 2;
-                    Math.Truncate((double)inputStats[index]);
-
+                    stat -= 10;
+                    stat /= 2;
+                    Math.Truncate((double)stat);
+                    newModStats.Add(stat);
                 }
-                if (inputStats[index] < 10)
+                if (moddedStat < 10)
                 {
-                    inputStats[index] -= 10;
-                    inputStats[index] /= 2;
-                    Math.Round((double)inputStats[index]);
+                    stat -= 10;
+                    stat /= 2;
+                    Math.Round((double)stat);
+                    newModStats.Add(stat);
                 }
             }
-            return inputStats;
+            return newModStats;
         }
     }
 }

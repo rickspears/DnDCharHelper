@@ -10,17 +10,16 @@ namespace DnDCharacterHelper
 {
     class SavingThrows
     {
-        public int[] CalculateSavingThrows(int[] savThro)
+        public List<int> CalculateSavingThrows(List<int> savThro)
         {
-            for (int index = 0; index < savThro.Length; index++)
+            List<int> newSavThro = new List<int>();
+            foreach (int sav in savThro)
             {
-                int replaceStat = savThro[index];
-                replaceStat += 10;
-                savThro[index] = replaceStat; 
-
-
+                int newSav = sav;
+                newSav += 10;
+                newSavThro.Add(newSav);
             }
-            return savThro;
+            return newSavThro;
         }
 
     }

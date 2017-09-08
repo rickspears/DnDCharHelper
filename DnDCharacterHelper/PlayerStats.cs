@@ -9,58 +9,38 @@ using System.Threading.Tasks;
 
 namespace DnDCharacterHelper
 {
-    class PlayerStats
+    public class PlayerStats
     {
+        public List<int> OrigStats { get; set; }
+        public List<int> ModStats { get; set; }
+        public List<int> SavingThrows { get; set; }
+        
 
-
-        private int[] _origStats; 
-        public int[] OrigStats
-        {
-            get { return _origStats; }
-            set { _origStats = value; }
-        }
-
-        private int[] _modStats;
-        public int[] ModStats
-        {
-            get { return _modStats; }
-            set { _modStats = value; }
-        }
-
-        private int[] _savingThrows;
-        public int[] SavingThrows
-        {
-            get { return _savingThrows; }
-            set { _savingThrows = value; }
-        }
-
-
-
-        public void WriteStats(int[] original, int[] modded, int[] saving)
+        public void WriteStats()
         {
             Console.WriteLine("STATS");
 
-                Console.WriteLine("STR: {0}", original[0]);
-                Console.WriteLine("DEX: {0}", original[1]);
-                Console.WriteLine("CON: {0}", original[2]);
-                Console.WriteLine("WIS: {0}", original[3]);
-                Console.WriteLine("INT: {0}", original[4]);
-                Console.WriteLine("CHA: {0}", original[5]);
+                Console.WriteLine("STR: {0}", OrigStats[0]);
+                Console.WriteLine("DEX: {0}", OrigStats[1]);
+                Console.WriteLine("CON: {0}", OrigStats[2]);
+                Console.WriteLine("WIS: {0}", OrigStats[3]);
+                Console.WriteLine("INT: {0}", OrigStats[4]);
+                Console.WriteLine("CHA: {0}", OrigStats[5]);
 
             Console.WriteLine("BONUSES");
 
-                Console.WriteLine("STR: {0}", modded[0]);
-                Console.WriteLine("DEX: {0}", modded[1]);
-                Console.WriteLine("CON: {0}", modded[2]);
-                Console.WriteLine("WIS: {0}", modded[3]);
-                Console.WriteLine("INT: {0}", modded[4]);
-                Console.WriteLine("CHA: {0}", modded[5]);
+                Console.WriteLine("STR: {0}", ModStats[0]);
+                Console.WriteLine("DEX: {0}", ModStats[1]);
+                Console.WriteLine("CON: {0}", ModStats[2]);
+                Console.WriteLine("WIS: {0}", ModStats[3]);
+                Console.WriteLine("INT: {0}", ModStats[4]);
+                Console.WriteLine("CHA: {0}", ModStats[5]);
 
             Console.WriteLine("SAVING THROWS");
 
-                Console.WriteLine("REFLEX: {0}", saving[1]);
-                Console.WriteLine("FORT: {0}",   saving[2]);
-                Console.WriteLine("WISDOM: {0}", saving[3]);
+                Console.WriteLine("REFLEX: {0}", SavingThrows[1]);
+                Console.WriteLine("FORT: {0}", SavingThrows[2]);
+                Console.WriteLine("WISDOM: {0}", SavingThrows[3]);
 
         }
     }
